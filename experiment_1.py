@@ -1,34 +1,49 @@
-```python
 import numpy as np
 import pandas as pd
 
-# Load student dataset
-df = pd.read_csv("student.csv")
+# Load the same dataset used in the EDA notebook
+data_path = "/kaggle/input/student-classification-dataset/student.csv"
+df = pd.read_csv(data_path)
 
-# NumPy Array
+# Remove unnecessary index columns
+df = df.drop(columns=["Unnamed: 0", "Id"])
+
+# -------------------------------
+# NUMPY ARRAY
+# -------------------------------
+
 study_hours = np.array(df["Weekly_Study_Hours"])
 
 print("NUMPY ARRAY")
 print("Weekly Study Hours:", study_hours)
+
 print("Mean Study Hours:", np.mean(study_hours))
 print("Maximum Study Hours:", np.max(study_hours))
 print("Minimum Study Hours:", np.min(study_hours))
-print("First three values:", study_hours[:3])
-print("Last three values:", study_hours[-3:])
 
-# Pandas DataFrame
+print("First four study-hour values:", study_hours[:4])
+print("Last three study-hour values:", study_hours[-3:])
+
+
+# -------------------------------
+# PANDAS DATAFRAME
+# -------------------------------
+
 print("\nPANDAS DATAFRAME")
-print(df[["Student_Age", "Sex", "Weekly_Study_Hours", "Attendance", "Grade"]])
+print(df)
 
-print("\nFirst 3 rows:")
-print(df.iloc[:3])
+# First 4 rows
+print("\nFirst 4 rows:")
+print(df.iloc[:4])
 
+# Student Age column
 print("\nStudent Age column:")
 print(df["Student_Age"])
 
-print("\nStudents with more than 5 weekly study hours:")
-print(df[df["Weekly_Study_Hours"] > 5])
+# Students studying more than 6 hours
+print("\nStudents with more than 6 weekly study hours:")
+print(df[df["Weekly_Study_Hours"] > 6])
 
-print("\nFirst 2 rows and first 2 columns:")
-print(df.iloc[:2, :2])
-```
+# First 3 rows and first 3 columns
+print("\nFirst 3 rows and first 3 columns:")
+print(df.iloc[:3, :3])
