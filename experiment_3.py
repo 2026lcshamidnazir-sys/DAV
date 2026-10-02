@@ -14,8 +14,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-# Load the same dataset used in the EDA notebook
-data_path = "/kaggle/input/student-classification-dataset/student.csv"
+# Load the student dataset
+data_path = "student.csv"
 df = pd.read_csv(data_path)
 
 # Remove unnecessary columns
