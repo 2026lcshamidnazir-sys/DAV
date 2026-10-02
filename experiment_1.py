@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-# Load the same dataset used in the EDA notebook
-data_path = "/kaggle/input/student-classification-dataset/student.csv"
+# Load the student dataset
+data_path = "student.csv"
 df = pd.read_csv(data_path)
 
 # Remove unnecessary index columns
